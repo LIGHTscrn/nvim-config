@@ -77,7 +77,7 @@ A fast, modular, and productive setup with LSP, DAP, Treesitter, Telescope, and 
 
 ---
 
-# 🛠️ Installation Guide
+# 🛠️ Linux Installation Guide
 
 This guide walks you through setting up [nvim-config](https://github.com/LIGHTscrn/nvim-config), a minimal yet powerful Neovim configuration built using `lazy.nvim`.
 
