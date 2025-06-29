@@ -1,144 +1,119 @@
-Neovim Configuration
-This repository houses my personal Neovim (nvim) configuration, designed for coding, debugging, and productivity. It uses lazy.nvim for plugin management and features a modular setup for LSP, DAP, and other utilities.
 
-Features
+# Nvim-Config
+My personal Neovim configuration written in Lua, using [Lazy.nvim](https://github.com/folke/lazy.nvim) as the plugin manager.  
+A fast, modular, and productive setup with LSP, DAP, Treesitter, Telescope, and more.
 
-Lightweight and Modular: Streamlined configuration for efficiency.
-Plugin Management: Managed via lua/pranav/lazyconfig.lua.
-LSP & Autocompletion: Robust support for language servers and code completion.
-Debugging: Integrated DAP for seamless debugging workflows.
-Custom Keybindings: Optimized for fast navigation and workflows.
-Clean UI: Minimalist design with the Rose Pine colorscheme.
+---
 
+## 🛠 Features
 
-Installation
-Prerequisites
+- ⚡ Lazy-loaded plugin management (`lazy.nvim`)
+- 🌈 Beautiful theme with `rose-pine`
+- 🔍 Fuzzy finding using `Telescope`
+- 🌳 Syntax highlighting & code structure with `Treesitter`
+- 🧠 Language support via `lsp-zero` and `mason`
+- 💡 Autocompletion with `nvim-cmp` and snippets
+- 🗂️ Quick file nav with `Harpoon`
+- 🧪 Debugging powered by `nvim-dap` and UI
+- ⏪ Persistent undo with `undotree`
+- 🌿 Git integration with `vim-fugitive`
 
-Neovim 0.9.0 or later
-Git
-A Nerd Font (recommended for plugin icons, e.g., Telescope, Harpoon)
-Node.js and npm (for LSP servers)
-Python 3 (for Python-based plugins, LSP, or DAP)
+---
 
-Steps
+## Folder structure
+~/.config/nvim/\
+├── init.lua\
+├── lua/\
+│ └── pranav/\
+│ ├── init.lua\
+│ ├── remap.lua\
+│ ├── lazyconfig.lua\
+│ └── ...\
+├── after/\
+│ └── plugin/\
+│   ├── colours.lua\
+│   ├── dap.lua\
+│   ├── fugitive.lua\
+│   ├── harpoon.lua\
+│   ├── lsp.lua\
+│   ├── telescope.lua\
+│   ├── treesitter.lua\
+│   └── undotree.lua\
 
-Clone the Repository:
+---
+
+## 🧩 Plugins Used
+
+### 🌐 Core Plugins
+
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim) – Plugin manager
+- [rose-pine/neovim](https://github.com/rose-pine/neovim) – Colorscheme
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) – Fuzzy finder
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) – Treesitter support
+- [nvim-treesitter/playground](https://github.com/nvim-treesitter/playground) – Treesitter inspection
+
+### 🧠 LSP and Completion
+
+- [VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim) – Simplified LSP setup
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+- [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp) – Autocompletion engine
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip) – Snippet engine
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets) – Prebuilt snippets
+
+### 🧪 Debugging
+
+- [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap) – Core DAP
+- [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) – Debug UI
+- [mfussenegger/nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python) – Python support
+- [nvim-neotest/nvim-nio](https://github.com/nvim-neotest/nvim-nio) – Required for dap-ui
+
+### 🔧 Utilities
+
+- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon) – Quick file navigation
+- [mbbill/undotree](https://github.com/mbbill/undotree) – Persistent undo history
+- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive) – Git commands in Neovim
+
+---
+
+# 🛠️ Installation Guide
+
+This guide walks you through setting up [nvim-config](https://github.com/LIGHTscrn/nvim-config), a minimal yet powerful Neovim configuration built using `lazy.nvim`.
+
+---
+
+## ✅ Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+| Requirement            | Recommended Version | Install Command (Arch Linux)         |
+|------------------------|---------------------|--------------------------------------|
+| [Neovim](https://neovim.io)       | `v0.9.0+`           | `sudo pacman -S neovim`              |
+| [Git](https://git-scm.com)         | Latest              | `sudo pacman -S git`                 |
+| [Nerd Font](https://www.nerdfonts.com/) | Any                | Use your preferred font manager      |
+| [Node.js & npm](https://nodejs.org) | Latest              | `sudo pacman -S nodejs npm`          |
+| Python 3 & pip         | Latest              | `sudo pacman -S python python-pip`   |
+
+---
+
+## Step 1
+
+## 📦 Clone the Repository into nvim folder
+
+```bash
 git clone https://github.com/pranavrp-pranav/pranav-nvim ~/.config/nvim
+```
+## Step 2
 
+## Install plugins 
 
-Install Plugins:
+```bash
+cd ~/.config/nvim
+```
+```bash
+nvim .
+```
+#### You should see lazy install itself
+![Screenshot](https://github.com/LIGHTscrn/Necessary-handlers/blob/09fbd6ce359b0c3e32cf544661b69a58cdf0d4ab/lazy.png)
 
-Launch Neovim with nvim.
-Plugins in lua/pranav/lazyconfig.lua will install automatically via lazy.nvim.
-
-
-Optional: Install LSP/DAP Servers:
-
-Use :Mason to install language servers (e.g., pyright for Python).
-For DAP, install debuggers like codelldb or debugpy (after/plugin/dap.lua).
-
-
-Verify Setup:
-
-Run :checkhealth to confirm plugins and dependencies are correctly installed.
-
-
-
-
-Plugins
-Core Plugins
-
-folke/lazy.nvim: Plugin manager
-rose-pine/neovim: Colorscheme (after/plugin/colours.lua)
-nvim-telescope/telescope.nvim: Fuzzy finder (after/plugin/telescope.lua)
-nvim-treesitter/nvim-treesitter: Syntax highlighting and parsing (after/plugin/treesitter.lua)
-nvim-treesitter/playground: Treesitter inspection
-
-LSP and Completion
-
-VonHeikemen/lsp-zero.nvim: Simplified LSP setup (after/plugin/lsp.lua)
-neovim/nvim-lspconfig: LSP configurations
-williamboman/mason.nvim: LSP server management
-williamboman/mason-lspconfig.nvim: Bridges Mason and lspconfig
-hrsh7th/nvim-cmp: Autocompletion engine
-L3MON4D3/LuaSnip: Snippet engine
-rafamadriz/friendly-snippets: Prebuilt snippets
-
-Debugging
-
-mfussenegger/nvim-dap: Core DAP (after/plugin/dap.lua)
-rcarriga/nvim-dap-ui: Debug UI
-mfussenegger/nvim-dap-python: Python debugging
-nvim-neotest/nvim-nio: Required for dap-ui
-
-Utilities
-
-ThePrimeagen/harpoon: Quick file navigation (after/plugin/harpoon.lua)
-mbbill/undotree: Persistent undo history (after/plugin/undotree.lua)
-tpope/vim-fugitive: Git integration (after/plugin/fugitive.lua)
-
-
-See lua/pranav/lazyconfig.lua for the full plugin list.
-
-
-Keybindings
-Custom keybindings are defined in lua/pranav/remap.lua. Example mappings (with <leader> as <Space>):
-
-<leader>ff: Open Telescope file finder
-<leader>gg: Show Git status (via Fugitive)
-<leader>u: Toggle Undotree
-<leader>h: Open Harpoon menu
-
-
-Full keybindings are listed in lua/pranav/remap.lua.
-
-
-Directory Structure
-~/.config/nvim/
-├── after/
-│   └── plugin/
-│       ├── colours.lua     # Rose Pine colorscheme settings
-│       ├── dap.lua         # DAP configurations
-│       ├── fugitive.lua    # Fugitive (Git) settings
-│       ├── harpoon.lua     # Harpoon settings
-│       ├── lsp.lua         # LSP configurations
-│       ├── telescope.lua   # Telescope settings
-│       ├── treesitter.lua  # Treesitter settings
-│       └── undotree.lua   # Undotree settings
-├── lua/
-│   └── pranav/
-│       ├── init.lua       # Core configuration
-│       ├── lazyconfig.lua # Plugin management
-│       ├── remap.lua      # Keybindings
-│       └── set.lua        # General Neovim settings
-├── init.lua               # Entry point
-└── README.md              # This file
-
-
-Getting Started
-
-Clone the repository:git clone https://github.com/pranavrp-pranav/pranav-nvim ~/.config/nvim
-
-
-Open Neovim:nvim
-
-
-
-
-Customization
-
-General Settings: Modify lua/pranav/set.lua for options like tab width or global settings.
-Plugins: Add or edit plugins in lua/pranav/lazyconfig.lua.
-Plugin Configurations: Update files in after/plugin/ for specific plugin settings.
-Keybindings: Customize mappings in lua/pranav/remap.lua.
-
-
-Notes
-
-Optimized for Unix-like systems (Linux/macOS). For Windows, use ~/AppData/Local/nvim.
-Run :checkhealth to troubleshoot issues.
-Contributions and suggestions are welcome!
-
-
-License
-MIT License
