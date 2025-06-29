@@ -117,3 +117,8 @@ nvim .
 #### You should see lazy install itself
 ![Screenshot](https://github.com/LIGHTscrn/Necessary-handlers/blob/489b54667a3c68ab82cbb5395a80b2d1f6782d4b/images/lazy.png)
 
+---
+
+## That's it. Enjoy! 🎉
+
+
