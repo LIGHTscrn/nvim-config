@@ -115,5 +115,5 @@ cd ~/.config/nvim
 nvim .
 ```
 #### You should see lazy install itself
-![Screenshot](https://github.com/LIGHTscrn/Necessary-handlers/blob/09fbd6ce359b0c3e32cf544661b69a58cdf0d4ab/lazy.png)
+![Screenshot](https://github.com/LIGHTscrn/Necessary-handlers/blob/489b54667a3c68ab82cbb5395a80b2d1f6782d4b/images/lazy.png)
 
