@@ -1,18 +1,16 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
-  sync_install = false,
-  auto_install = true,
+-- Try to load the module, if it fails (status is false), stop execution
+local status, configs = pcall(require, "nvim-treesitter.configs")
+if not status then
+    return
+end
 
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+configs.setup {
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+    sync_install = false,
+    auto_install = true,
 
-  playground = {
-    enable = true,
-    disable = {},
-    updatetime = 25, -- Debounced time for node highlight
-    persist_queries = false,
-  }
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
 }
-

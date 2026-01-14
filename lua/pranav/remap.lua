@@ -42,25 +42,3 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x  %<CR>", { silent = true })
-
-
--- Map F5 to save and run the current Python file
-vim.keymap.set('n', '<F5>', ':w<CR>:!python %<CR>', { noremap = true, silent = true })
-
--- for going to normal mode 
-vim.keymap.set('i', "jj",'<Esc>',{ noremap = true})
-
--- for debugpy launch dapui
-vim.keymap.set('n',"<F6>","<cmd>lua require'dapui'.toggle()<CR>")
-vim.keymap.set('i',"<F6>","<cmd>lua require'dapui'.toggle()<CR>")
-
-    --set breakpoints
-vim.keymap.set('n',"<leader>b","<cmd>lua require'dap'.toggle_breakpoint()<CR>")
-vim.keymap.set('i',"<leader>b","<cmd>lua require'dap'.toggle_breakpoint()<CR>")
-
-    --set stepover and continue
-
-vim.keymap.set('n',"<F10>","<cmd>lua require'dap'.step_over()<CR>")
-vim.keymap.set('n',"<F9>","<cmd>lua require'dap'.step_into()<CR>")
-vim.keymap.set('n',"<F8>","<cmd>lua require'dap'.step_out()<CR>")
-vim.keymap.set('n',"<F7>","<cmd>lua require'dap'.continue()<CR>")
