@@ -1,7 +1,8 @@
 return {
     -- Telescope
     {
-        'nvim-telescope/telescope.nvim', tag = '*',
+        'nvim-telescope/telescope.nvim',
+        tag = '*',
         dependencies = {
             'nvim-lua/plenary.nvim',
             -- optional but recommended
@@ -9,10 +10,10 @@ return {
         }
     },
 
-    -- Rose-pine theme
+    -- lua/plugins/rose-pine.lua
     {
-        'rose-pine/neovim',
-        name = 'rose-pine',
+        "rose-pine/neovim",
+        name = "rose-pine",
         config = function()
             vim.cmd("colorscheme rose-pine")
         end
@@ -28,6 +29,7 @@ return {
     -- Harpoon
     {
         'ThePrimeagen/harpoon',
+        branch = "harpoon2",
         dependencies = { 'nvim-lua/plenary.nvim' }, -- Harpoon needs plenary
     },
 
