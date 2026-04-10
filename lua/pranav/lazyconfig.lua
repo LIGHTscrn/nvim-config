@@ -28,9 +28,12 @@ return {
 
     -- Harpoon
     {
-        'ThePrimeagen/harpoon',
+        "ThePrimeagen/harpoon",
         branch = "harpoon2",
-        dependencies = { 'nvim-lua/plenary.nvim' }, -- Harpoon needs plenary
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("harpoon"):setup()
+        end,
     },
 
     --undotree
